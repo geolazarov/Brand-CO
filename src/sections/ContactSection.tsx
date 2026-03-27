@@ -8,7 +8,7 @@ import Section from '../components/layout/Section';
 export default function ContactSection() {
   return (
     <Section id="contact" variant="light" padded={true} className="py-12">
-      <p className="font-medium text-[clamp(28px,4.8vw,92px)] leading-[1.2]">
+      <p className="font-medium text-[clamp(20px,4.8vw,92px)] leading-[1.2]">
         This is a temporary website.
         <br />
         A full archive of our work will be available soon.{' '}

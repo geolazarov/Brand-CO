@@ -22,7 +22,7 @@ export default function Section({
   padded = true,
 }: SectionProps) {
   const bg = variant === 'light' ? 'bg-white text-black' : 'bg-black text-white';
-  const padding = padded ? 'px-14 py-12' : '';
+  const padding = padded ? 'px-4 py-8 sm:px-14 sm:py-12' : '';
 
   return (
     <section id={id} className={`w-full ${bg} ${padding} ${className}`}>

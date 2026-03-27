@@ -26,7 +26,7 @@ export default function ProjectCard({
   const cardContent = (
     <>
       {/* ── Image area ── */}
-      <div className="relative w-full h-[642px] bg-black overflow-hidden flex items-center justify-center">
+      <div className="relative w-full h-[260px] sm:h-[420px] lg:h-[642px] bg-black overflow-hidden flex items-center justify-center">
         {/* Background fill */}
         {bgImage && (
           <img
@@ -53,10 +53,10 @@ export default function ProjectCard({
       {/* ── Title row ── */}
       <div className="flex items-start justify-between pt-4">
         <div className="flex flex-col gap-1">
-          <span className="text-white text-lg font-medium leading-snug">
+          <span className="text-white text-sm sm:text-lg font-medium leading-snug">
             {title}
           </span>
-          <span className="text-white text-lg font-light leading-snug">
+          <span className="text-white text-sm sm:text-lg font-light leading-snug">
             {description}
           </span>
         </div>

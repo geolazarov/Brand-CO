@@ -52,7 +52,7 @@ export default function HeroSection() {
 
       {/* Brand wordmark overlay — positioned ~36% from left, ~48% from top */}
       <div className="absolute pointer-events-none" style={{ left: '36.3%', top: '47.8%' }}>
-        <span className="text-white text-[clamp(28px,2.8vw,54px)] font-normal leading-none tracking-tight">
+        <span className="display-text text-[clamp(28px,2.8vw,54px)]">
           Crunchy Oyster
         </span>
       </div>

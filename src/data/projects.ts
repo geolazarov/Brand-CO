@@ -17,7 +17,9 @@ export const projects: Project[] = [
     id: 'brand-the-city',
     title: 'Brand the City',
     description: 'Festival Identity and web implementation',
-    bgImage: 'https://www.figma.com/api/mcp/asset/e89fb00c-d077-4f37-9dd9-63a4a060c6c6',
+    // The original Figma MCP asset was returning an SVG curve shape, not a photo.
+    // Replace bgImage with the actual project photo when available.
+    bgImage: '',
     link: '#',
   },
   {
