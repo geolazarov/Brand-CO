@@ -80,10 +80,10 @@ export default function HeroSection() {
 
       {/* Brand wordmark overlay */}
       <div
-        className="absolute pointer-events-none z-20 translate-z-[-50%, 0] text-right lg:text-left"
+        className="absolute pointer-events-none z-20 translate-z-[-50%, 0] text-right lg:text-left mix-blend-difference"
         style={{ left: "50%", top: "47.8%", transform: "translateX(-50%)" }}
       >
-        <span className="display-text text-[clamp(54px,2.8vw,68px)]">
+        <span className="display-text text-[clamp(54px,2.8vw,68px)] ">
           Crunchy&ensp;Oyster
         </span>
       </div>
