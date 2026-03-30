@@ -5,7 +5,7 @@
  */
 export default function Nav() {
   return (
-    <nav className="fixed top-0 left-0 z-50 flex items-center gap-5 sm:gap-10 px-4 sm:px-6 h-[70px]">
+    <nav className="sticky mix-blend-exclusion top-0 left-0 z-50 flex items-center gap-5 sm:gap-10 px-4 sm:px-6 h-[70px] mt-[-70px]">
       <a
         href="#about"
         className="text-white text-lg leading-snug mix-blend-difference hover:opacity-70 transition-opacity"
