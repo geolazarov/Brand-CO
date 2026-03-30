@@ -1,4 +1,4 @@
-import Section from '../components/layout/Section';
+import Section from "../components/layout/Section";
 
 /**
  * "Temporary website" notice — white background, black text.
@@ -7,16 +7,15 @@ import Section from '../components/layout/Section';
  */
 export default function ContactSection() {
   return (
-    <Section id="contact" variant="light" padded={true} className="py-12">
-      <p className="font-medium text-[clamp(20px,4.8vw,92px)] leading-[1.2]">
+    <Section
+      id="info"
+      variant="light"
+      padded={true}
+      className="py-12 min-h-[40vh] md:min-h-[80vh]"
+    >
+      <p className="font-bold md:font-semibold text-[clamp(26px,4.8vw,92px)] leading-[1.2]">
         This is a temporary website.
-        <br />
-        A full archive of our work will be available soon.{' '}
-        <span className="line-through">
-          Visit us on Instagram
-          <br />
-          for recent updates.
-        </span>
+        <br />A full archive of our work will be available soon.{" "}
       </p>
     </Section>
   );
