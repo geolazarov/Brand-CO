@@ -3,10 +3,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"TT Hoves"', 'system-ui', 'sans-serif'],
-        swear: ['"Swear Display"', 'serif'],
+        sans: ["General Sans", "system-ui", "sans-serif"],
+        swear: ['"Swear Display"', "serif"],
       },
     },
   },
   plugins: [],
-}
+};
