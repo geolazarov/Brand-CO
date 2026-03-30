@@ -45,7 +45,7 @@ export default function ProjectCard({
           <img
             src={projectImage}
             alt={`${title} — project screenshot`}
-            className="relative z-10 max-h-[540px] max-w-[80%] object-contain"
+            className="relative z-10 max-h-[100%] max-w-[80%] object-contain"
           />
         )}
       </div>
