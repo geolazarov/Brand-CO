@@ -66,11 +66,11 @@ export default function HeroSection() {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide, i) => (
-          <div key={i} className="relative flex-shrink-0 w-full h-full">
+          <div key={i} className={`relative flex-shrink-0 w-full h-full flex ${slide.objPosition}`}>
             <img
               src={slide.src}
               alt={slide.alt}
-              className={`w-full h-full ${slide?.objFit ?? ""} object-cover ${slide.objPosition}`}
+              className={`w-full ${slide?.imgWidth} h-full object-cover `}
               loading={i === 0 ? "eager" : "lazy"}
               draggable={false}
             />

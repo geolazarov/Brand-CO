@@ -2,7 +2,7 @@ import Section from "../components/layout/Section";
 
 export default function FooterSection() {
   const classNameText =
-    "font-bold md:font-semibold text-[clamp(26px,4.8vw,92px)] leading-[1.2]";
+    "font-bold md:font-semibold text-[clamp(24px,4.8vw,92px)] leading-[1.2]";
   return (
     <Section
       id="contact"
