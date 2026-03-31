@@ -1,4 +1,4 @@
-import type { Project } from '../types';
+import type { Project } from "../types";
 
 interface ProjectCardProps extends Project {}
 
@@ -53,17 +53,14 @@ export default function ProjectCard({
       {/* ── Title row ── */}
       <div className="flex items-start justify-between pt-4">
         <div className="flex flex-col gap-1">
-          <span className="text-white text-sm sm:text-lg font-medium leading-snug">
+          <span className="flex flex-row gap-2 text-white text-sm sm:text-lg font-medium leading-snug">
             {title}
+            {link && <ArrowUpRight className="shrink-0 mt-0 md:mt-0.5 text-white" />}
           </span>
           <span className="text-white text-sm sm:text-lg font-light leading-snug">
             {description}
           </span>
         </div>
-
-        {link && (
-          <ArrowUpRight className="shrink-0 mt-0.5 text-white" />
-        )}
       </div>
     </>
   );
@@ -85,7 +82,7 @@ export default function ProjectCard({
   return <div className="flex flex-col">{cardContent}</div>;
 }
 
-function ArrowUpRight({ className = '' }: { className?: string }) {
+function ArrowUpRight({ className = "" }: { className?: string }) {
   return (
     <svg
       width="24"
