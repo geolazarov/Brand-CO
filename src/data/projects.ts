@@ -10,6 +10,7 @@ import imgUrbanStorytelling from "../assets/projects/Project-USS.jpg";
 import imgBgUrbanStorytelling from "../assets/projects/Project-bg-USS.jpg";
 import imgNaepPlovdiv from "../assets/projects/Project-FestivalPlovdiv2025.png";
 import imgSTB from "../assets/projects/Project-STB.jpg";
+import imgResm from "../assets/projects/Project-RESM.jpg";
 import imgBgResm from "../assets/projects/Project-bg-RESM.jpg";
 
 export const projects: Project[] = [
@@ -70,5 +71,6 @@ export const projects: Project[] = [
     title: "RESM: Reshaping the Future of Sport",
     description: "Identity",
     bgImage: imgBgResm,
+    projectImage: imgResm,
   },
 ];
