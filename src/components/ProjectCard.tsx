@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Project } from "../types";
 
 interface ProjectCardProps extends Project {}
@@ -21,8 +22,12 @@ export default function ProjectCard({
   description,
   bgImage,
   projectImage,
+  projectVideo,
   link,
 }: ProjectCardProps) {
+  const hasMedia = projectImage || projectVideo;
+  const [videoReady, setVideoReady] = useState(false);
+
   const cardContent = (
     <>
       {/* ── Image area ── */}
@@ -37,7 +42,7 @@ export default function ProjectCard({
           />
         )}
         {/* Optional overlay dimming when both images are shown */}
-        {bgImage && projectImage && (
+        {bgImage && hasMedia && (
           <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
         )}
         {/* Centered project screenshot */}
@@ -45,7 +50,25 @@ export default function ProjectCard({
           <img
             src={projectImage}
             alt={`${title} — project screenshot`}
-            className="relative z-10 max-h-[100%] max-w-[80%] object-contain"
+            className={`absolute z-10 max-h-full max-w-[80%] object-contain transition-opacity duration-500 ${
+              videoReady ? "opacity-0" : "opacity-100"
+            }`}
+          />
+        )}
+
+        {/* 🎥 VIDEO */}
+        {projectVideo && (
+          <video
+            src={projectVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onCanPlay={() => setVideoReady(true)}
+            className={`relative z-10 max-h-full max-w-[80%] object-contain transition-opacity duration-500 ${
+              videoReady ? "opacity-100" : "opacity-0"
+            }`}
           />
         )}
       </div>
@@ -55,12 +78,17 @@ export default function ProjectCard({
         <div className="flex flex-col gap-1">
           <span className="flex flex-row gap-2 text-white text-sm sm:text-lg font-medium leading-snug">
             {title}
-            {link && <ArrowUpRight className="shrink-0 mt-0 md:mt-0.5 text-white" />}
+            {link && (
+              <ArrowUpRight className="shrink-0 mt-0 md:mt-0.5 text-white hidden lg:block" />
+            )}
           </span>
           <span className="text-white text-sm sm:text-lg font-light leading-snug">
             {description}
           </span>
         </div>
+        {link && (
+          <ArrowUpRight className="shrink-0 mt-0 md:mt-0.5 text-white block lg:hidden" />
+        )}
       </div>
     </>
   );

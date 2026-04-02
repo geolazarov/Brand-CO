@@ -13,6 +13,8 @@ import imgSTB from "../assets/projects/Project-STB.jpg";
 import imgResm from "../assets/projects/Project-RESM.jpg";
 import imgBgResm from "../assets/projects/Project-bg-RESM.jpg";
 
+const websiteUrl = `${import.meta.env.VITE_PUBLIC_WEBSITE_URL}` || "";
+
 export const projects: Project[] = [
   {
     id: "maestro-dian",
@@ -27,6 +29,8 @@ export const projects: Project[] = [
     description: "Festival Identity and web implementation",
     bgImage: "",
     projectImage: imgBrandTheCity,
+    projectVideo:
+      `${websiteUrl}/assets/videos/BTC-SCREEN-video.mp4`,
     link: "https://brandthecity.eu/",
   },
   {

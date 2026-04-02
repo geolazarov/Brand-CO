@@ -7,5 +7,6 @@ export interface Project {
   /** Optional centered mockup displayed on top of the background */
   projectImage?: string;
   /** External link; omit for projects without a live site */
+  projectVideo?: string; 
   link?: string;
 }
