@@ -50,7 +50,7 @@ export default function ProjectCard({
           <img
             src={projectImage}
             alt={`${title} — project screenshot`}
-            className={`absolute z-10 max-h-full max-w-[80%] object-contain transition-opacity duration-500 ${
+            className={`absolute z-10 max-h-[80%] w-[80%] object-contain transition-opacity duration-500 ${
               videoReady ? "opacity-0" : "opacity-100"
             }`}
           />
