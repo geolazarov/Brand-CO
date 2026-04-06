@@ -1,0 +1,63 @@
+[
+  {
+    "id": "maestro-dian",
+    "title": "Maestro Dian Tchobanov",
+    "description": "Portfolio of Plovdiv's State Opera Director",
+    "bgImage": "assets/projects/Project-bg-Tchobanov.jpg",
+    "projectImage": "assets/projects/Project-Tchobanov.jpg"
+  },
+  {
+    "id": "brand-the-city",
+    "title": "Brand the City",
+    "description": "Festival Identity and web implementation",
+    "bgImage": "",
+    "projectImage": "assets/projects/Project-BTC.jpg",
+    "projectVideo": "https://crunchyoyster.com/assets/videos/BTC-SCREEN-video.mp4",
+    "link": "https://brandthecity.eu/"
+  },
+  {
+    "id": "mir-office-building",
+    "title": "Mir Office Building",
+    "description": "Website design and implementation",
+    "bgImage": "",
+    "projectImage": "assets/projects/Project-MIR.jpg",
+    "link": "https://mirbuilding.bg"
+  },
+  {
+    "id": "nine-elephants",
+    "title": "Nine Elephants: Festival for Art in Urban Spaces",
+    "description": "Festival identity and web implementation",
+    "bgImage": "assets/projects/Project-bg-9Slona.jpg",
+    "projectImage": "assets/projects/Project-9Slona.jpg"
+  },
+  {
+    "id": "urban-storytelling-school",
+    "title": "Urban Storytelling School",
+    "description": "Identity and web implementation",
+    "bgImage": "assets/projects/Project-bg-USS.jpg",
+    "projectImage": "assets/projects/Project-USS.jpg",
+    "link": "https://devetslona.art/urbanstorytellingschool/"
+  },
+  {
+    "id": "naep-plovdiv",
+    "title": "National Autumn Exhibitions Plovdiv 2025",
+    "description": "Festival identity",
+    "bgImage": "",
+    "projectImage": "assets/projects/Project-FestivalPlovdiv2025.png"
+  },
+  {
+    "id": "lyuben-stanev",
+    "title": "Lyuben Stanev. Literary and film heritage",
+    "description": "Digital exhibition design and implementation",
+    "bgImage": "",
+    "projectImage": "assets/projects/Project-STB.jpg",
+    "link": "https://books.steptobulgaria.com/exhibition/"
+  },
+  {
+    "id": "resm",
+    "title": "RESM: Reshaping the Future of Sport",
+    "description": "Identity",
+    "bgImage": "assets/projects/Project-bg-RESM.jpg",
+    "projectImage": "assets/projects/Project-RESM.jpg"
+  }
+]

@@ -1,80 +1,83 @@
 import type { Project } from "../types";
 
-import imgTchobanov from "../assets/projects/Project-Tchobanov.jpg";
-import imgBgTchobanov from "../assets/projects/Project-bg-Tchobanov.jpg";
-import imgBrandTheCity from "../assets/projects/Project-BTC.jpg";
-import imgMirOffice from "../assets/projects/Project-MIR.jpg";
-import imgNineElephants from "../assets/projects/Project-9Slona.jpg";
-import imgBgNineElephants from "../assets/projects/Project-bg-9Slona.jpg";
-import imgUrbanStorytelling from "../assets/projects/Project-USS.jpg";
-import imgBgUrbanStorytelling from "../assets/projects/Project-bg-USS.jpg";
-import imgNaepPlovdiv from "../assets/projects/Project-FestivalPlovdiv2025.png";
-import imgSTB from "../assets/projects/Project-STB.jpg";
-import imgResm from "../assets/projects/Project-RESM.jpg";
-import imgBgResm from "../assets/projects/Project-bg-RESM.jpg";
+const PROJECTS_ENDPOINT = `${import.meta.env.BASE_URL}data/projects.json`;
 
-const websiteUrl = `${import.meta.env.VITE_PUBLIC_WEBSITE_URL}` || "";
+const isAbsoluteUrl = (value: string): boolean =>
+  /^(?:[a-z][a-z0-9+.-]*:)?\/\//i.test(value) ||
+  value.startsWith("data:") ||
+  value.startsWith("blob:");
 
-export const projects: Project[] = [
-  {
-    id: "maestro-dian",
-    title: "Maestro Dian Tchobanov",
-    description: "Portfolio of Plovdiv's State Opera Director",
-    bgImage: imgBgTchobanov,
-    projectImage: imgTchobanov,
-  },
-  {
-    id: "brand-the-city",
-    title: "Brand the City",
-    description: "Festival Identity and web implementation",
-    bgImage: "",
-    projectImage: imgBrandTheCity,
-    projectVideo:
-      `${websiteUrl}/assets/videos/BTC-SCREEN-video.mp4`,
-    link: "https://brandthecity.eu/",
-  },
-  {
-    id: "mir-office-building",
-    title: "Mir Office Building",
-    description: "Website design and implementation",
-    bgImage: "",
-    projectImage: imgMirOffice,
-    link: "https://mirbuilding.bg",
-  },
-  {
-    id: "nine-elephants",
-    title: "Nine Elephants: Festival for Art in Urban Spaces",
-    description: "Festival identity and web implementation",
-    bgImage: imgBgNineElephants,
-    projectImage: imgNineElephants,
-  },
-  {
-    id: "urban-storytelling-school",
-    title: "Urban Storytelling School",
-    description: "Identity and web implementation",
-    bgImage: imgBgUrbanStorytelling,
-    projectImage: imgUrbanStorytelling,
-  },
-  {
-    id: "naep-plovdiv",
-    title: "National Autumn Exhibitions Plovdiv 2025",
-    description: "Festival identity",
-    bgImage: "",
-    projectImage: imgNaepPlovdiv,
-  },
-  {
-    id: "lyuben-stanev",
-    title: "Lyuben Stanev. Literary and film heritage",
-    description: "Digital exhibition design and implementation",
-    bgImage: "",
-    projectImage: imgSTB,
-    link: "https://books.steptobulgaria.com/exhibition/",
-  },
-  {
-    id: "resm",
-    title: "RESM: Reshaping the Future of Sport",
-    description: "Identity",
-    bgImage: imgBgResm,
-    projectImage: imgResm,
-  },
-];
+const normalizeAssetPath = (value: string): string => {
+  if (!value) {
+    return "";
+  }
+
+  if (isAbsoluteUrl(value)) {
+    return value;
+  }
+
+  const path = value.startsWith("/") ? value.slice(1) : value;
+  return `${import.meta.env.BASE_URL}${path}`;
+};
+
+const parseProject = (raw: unknown): Project | null => {
+  if (!raw || typeof raw !== "object") {
+    return null;
+  }
+
+  const candidate = raw as Record<string, unknown>;
+
+  if (
+    typeof candidate.id !== "string" ||
+    typeof candidate.title !== "string" ||
+    typeof candidate.description !== "string" ||
+    typeof candidate.bgImage !== "string"
+  ) {
+    return null;
+  }
+
+  const project: Project = {
+    id: candidate.id,
+    title: candidate.title,
+    description: candidate.description,
+    bgImage: normalizeAssetPath(candidate.bgImage),
+  };
+
+  if (typeof candidate.projectImage === "string") {
+    project.projectImage = normalizeAssetPath(candidate.projectImage);
+  }
+
+  if (typeof candidate.projectVideo === "string") {
+    project.projectVideo = normalizeAssetPath(candidate.projectVideo);
+  }
+
+  if (typeof candidate.link === "string") {
+    project.link = candidate.link;
+  }
+
+  return project;
+};
+
+export async function loadProjects(): Promise<Project[]> {
+  const response = await fetch(PROJECTS_ENDPOINT, { cache: "no-store" });
+
+  if (!response.ok) {
+    throw new Error(`Failed to load projects.json: ${response.status}`);
+  }
+
+  const payload: unknown = await response.json();
+
+  if (!Array.isArray(payload)) {
+    throw new Error("Invalid projects.json format");
+  }
+
+  const parsedProjects = payload
+    .map((item) => parseProject(item))
+    .filter((item): item is Project => item !== null);
+
+  if (payload.length > 0 && parsedProjects.length === 0) {
+    throw new Error("projects.json contains no valid project entries");
+  }
+
+  return parsedProjects;
+}
